@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Font Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #userInput {
+            margin-bottom: 10px;
+        }
+        #paragraph {
+            border: 2px solid black;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <label for="colorPicker">Enter RGB values for text color and border color:</label><br>
+        <input type="text" id="colorPicker" placeholder="Enter RGB values (e.g., 255, 0, 0)">
+        <label for="borderWidth">Enter border width:</label><br>
+        <input type="number" id="borderWidth" placeholder="Enter border width in pixels">
+        <button onclick="applyStyles()">Apply Styles</button>
+        <p id="paragraph">Alter this text and border!.</p>
+    </div>
+
+    <script>
+        function applyStyles() {
+            var colorInput = document.getElementById("colorPicker").value;
+            var borderWidth = document.getElementById("borderWidth").value;
+            var paragraph = document.getElementById("paragraph");
+
+            // Splitting RGB values
+            var rgb = colorInput.split(",");
+
+            // Applying styles
+            paragraph.style.color = "rgb(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ")";
+            paragraph.style.borderColor = "rgb(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ")";
+            paragraph.style.borderWidth = borderWidth + "px";
+        }
+    </script>
+</body>
+</html>
